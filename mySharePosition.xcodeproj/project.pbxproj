@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A96449C316E11E9A00CCDE2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449C216E11E9A00CCDE2F /* UIKit.framework */; };
+		A96449C516E11E9A00CCDE2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449C416E11E9A00CCDE2F /* Foundation.framework */; };
+		A96449C716E11E9A00CCDE2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449C616E11E9A00CCDE2F /* CoreGraphics.framework */; };
+		A96449CD16E11E9A00CCDE2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96449CB16E11E9A00CCDE2F /* InfoPlist.strings */; };
+		A96449CF16E11E9A00CCDE2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A96449CE16E11E9A00CCDE2F /* main.m */; };
+		A96449D316E11E9A00CCDE2F /* SharePositionAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A96449D216E11E9A00CCDE2F /* SharePositionAppDelegate.m */; };
+		A96449D516E11E9A00CCDE2F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449D416E11E9A00CCDE2F /* Default.png */; };
+		A96449D716E11E9A00CCDE2F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449D616E11E9A00CCDE2F /* Default@2x.png */; };
+		A96449D916E11E9A00CCDE2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449D816E11E9A00CCDE2F /* Default-568h@2x.png */; };
+		A96449DC16E11E9A00CCDE2F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96449DA16E11E9A00CCDE2F /* MainStoryboard.storyboard */; };
+		A96449DF16E11E9A00CCDE2F /* SharePositionFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96449DE16E11E9A00CCDE2F /* SharePositionFirstViewController.m */; };
+		A96449E116E11E9A00CCDE2F /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449E016E11E9A00CCDE2F /* first.png */; };
+		A96449E316E11E9A00CCDE2F /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449E216E11E9A00CCDE2F /* first@2x.png */; };
+		A96449E616E11E9A00CCDE2F /* SharePositionSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96449E516E11E9A00CCDE2F /* SharePositionSecondViewController.m */; };
+		A96449E816E11E9A00CCDE2F /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449E716E11E9A00CCDE2F /* second.png */; };
+		A96449EA16E11E9A00CCDE2F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449E916E11E9A00CCDE2F /* second@2x.png */; };
+		A96449F216E11E9B00CCDE2F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449F116E11E9B00CCDE2F /* SenTestingKit.framework */; };
+		A96449F316E11E9B00CCDE2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449C216E11E9A00CCDE2F /* UIKit.framework */; };
+		A96449F416E11E9B00CCDE2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449C416E11E9A00CCDE2F /* Foundation.framework */; };
+		A96449FC16E11E9B00CCDE2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96449FA16E11E9B00CCDE2F /* InfoPlist.strings */; };
+		A96449FF16E11E9B00CCDE2F /* mySharePositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A96449FE16E11E9B00CCDE2F /* mySharePositionTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A96449F516E11E9B00CCDE2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A96449B716E11E9A00CCDE2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A96449BE16E11E9A00CCDE2F;
+			remoteInfo = mySharePosition;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A96449BF16E11E9A00CCDE2F /* mySharePosition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mySharePosition.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A96449C216E11E9A00CCDE2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A96449C416E11E9A00CCDE2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A96449C616E11E9A00CCDE2F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A96449CA16E11E9A00CCDE2F /* mySharePosition-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mySharePosition-Info.plist"; sourceTree = "<group>"; };
+		A96449CC16E11E9A00CCDE2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A96449CE16E11E9A00CCDE2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A96449D016E11E9A00CCDE2F /* mySharePosition-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mySharePosition-Prefix.pch"; sourceTree = "<group>"; };
+		A96449D116E11E9A00CCDE2F /* SharePositionAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharePositionAppDelegate.h; sourceTree = "<group>"; };
+		A96449D216E11E9A00CCDE2F /* SharePositionAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharePositionAppDelegate.m; sourceTree = "<group>"; };
+		A96449D416E11E9A00CCDE2F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A96449D616E11E9A00CCDE2F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A96449D816E11E9A00CCDE2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A96449DB16E11E9A00CCDE2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		A96449DD16E11E9A00CCDE2F /* SharePositionFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharePositionFirstViewController.h; sourceTree = "<group>"; };
+		A96449DE16E11E9A00CCDE2F /* SharePositionFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharePositionFirstViewController.m; sourceTree = "<group>"; };
+		A96449E016E11E9A00CCDE2F /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		A96449E216E11E9A00CCDE2F /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		A96449E416E11E9A00CCDE2F /* SharePositionSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharePositionSecondViewController.h; sourceTree = "<group>"; };
+		A96449E516E11E9A00CCDE2F /* SharePositionSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharePositionSecondViewController.m; sourceTree = "<group>"; };
+		A96449E716E11E9A00CCDE2F /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		A96449E916E11E9A00CCDE2F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		A96449F016E11E9B00CCDE2F /* mySharePositionTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mySharePositionTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A96449F116E11E9B00CCDE2F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A96449F916E11E9B00CCDE2F /* mySharePositionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mySharePositionTests-Info.plist"; sourceTree = "<group>"; };
+		A96449FB16E11E9B00CCDE2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A96449FD16E11E9B00CCDE2F /* mySharePositionTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mySharePositionTests.h; sourceTree = "<group>"; };
+		A96449FE16E11E9B00CCDE2F /* mySharePositionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mySharePositionTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A96449BC16E11E9A00CCDE2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A96449C316E11E9A00CCDE2F /* UIKit.framework in Frameworks */,
+				A96449C516E11E9A00CCDE2F /* Foundation.framework in Frameworks */,
+				A96449C716E11E9A00CCDE2F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A96449EC16E11E9B00CCDE2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A96449F216E11E9B00CCDE2F /* SenTestingKit.framework in Frameworks */,
+				A96449F316E11E9B00CCDE2F /* UIKit.framework in Frameworks */,
+				A96449F416E11E9B00CCDE2F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A96449B616E11E9A00CCDE2F = {
+			isa = PBXGroup;
+			children = (
+				A96449C816E11E9A00CCDE2F /* mySharePosition */,
+				A96449F716E11E9B00CCDE2F /* mySharePositionTests */,
+				A96449C116E11E9A00CCDE2F /* Frameworks */,
+				A96449C016E11E9A00CCDE2F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A96449C016E11E9A00CCDE2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A96449BF16E11E9A00CCDE2F /* mySharePosition.app */,
+				A96449F016E11E9B00CCDE2F /* mySharePositionTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A96449C116E11E9A00CCDE2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A96449C216E11E9A00CCDE2F /* UIKit.framework */,
+				A96449C416E11E9A00CCDE2F /* Foundation.framework */,
+				A96449C616E11E9A00CCDE2F /* CoreGraphics.framework */,
+				A96449F116E11E9B00CCDE2F /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A96449C816E11E9A00CCDE2F /* mySharePosition */ = {
+			isa = PBXGroup;
+			children = (
+				A96449D116E11E9A00CCDE2F /* SharePositionAppDelegate.h */,
+				A96449D216E11E9A00CCDE2F /* SharePositionAppDelegate.m */,
+				A96449DA16E11E9A00CCDE2F /* MainStoryboard.storyboard */,
+				A96449DD16E11E9A00CCDE2F /* SharePositionFirstViewController.h */,
+				A96449DE16E11E9A00CCDE2F /* SharePositionFirstViewController.m */,
+				A96449E016E11E9A00CCDE2F /* first.png */,
+				A96449E216E11E9A00CCDE2F /* first@2x.png */,
+				A96449E416E11E9A00CCDE2F /* SharePositionSecondViewController.h */,
+				A96449E516E11E9A00CCDE2F /* SharePositionSecondViewController.m */,
+				A96449E716E11E9A00CCDE2F /* second.png */,
+				A96449E916E11E9A00CCDE2F /* second@2x.png */,
+				A96449C916E11E9A00CCDE2F /* Supporting Files */,
+			);
+			path = mySharePosition;
+			sourceTree = "<group>";
+		};
+		A96449C916E11E9A00CCDE2F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A96449CA16E11E9A00CCDE2F /* mySharePosition-Info.plist */,
+				A96449CB16E11E9A00CCDE2F /* InfoPlist.strings */,
+				A96449CE16E11E9A00CCDE2F /* main.m */,
+				A96449D016E11E9A00CCDE2F /* mySharePosition-Prefix.pch */,
+				A96449D416E11E9A00CCDE2F /* Default.png */,
+				A96449D616E11E9A00CCDE2F /* Default@2x.png */,
+				A96449D816E11E9A00CCDE2F /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A96449F716E11E9B00CCDE2F /* mySharePositionTests */ = {
+			isa = PBXGroup;
+			children = (
+				A96449FD16E11E9B00CCDE2F /* mySharePositionTests.h */,
+				A96449FE16E11E9B00CCDE2F /* mySharePositionTests.m */,
+				A96449F816E11E9B00CCDE2F /* Supporting Files */,
+			);
+			path = mySharePositionTests;
+			sourceTree = "<group>";
+		};
+		A96449F816E11E9B00CCDE2F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A96449F916E11E9B00CCDE2F /* mySharePositionTests-Info.plist */,
+				A96449FA16E11E9B00CCDE2F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A96449BE16E11E9A00CCDE2F /* mySharePosition */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9644A0216E11E9B00CCDE2F /* Build configuration list for PBXNativeTarget "mySharePosition" */;
+			buildPhases = (
+				A96449BB16E11E9A00CCDE2F /* Sources */,
+				A96449BC16E11E9A00CCDE2F /* Frameworks */,
+				A96449BD16E11E9A00CCDE2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mySharePosition;
+			productName = mySharePosition;
+			productReference = A96449BF16E11E9A00CCDE2F /* mySharePosition.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A96449EF16E11E9B00CCDE2F /* mySharePositionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9644A0516E11E9B00CCDE2F /* Build configuration list for PBXNativeTarget "mySharePositionTests" */;
+			buildPhases = (
+				A96449EB16E11E9B00CCDE2F /* Sources */,
+				A96449EC16E11E9B00CCDE2F /* Frameworks */,
+				A96449ED16E11E9B00CCDE2F /* Resources */,
+				A96449EE16E11E9B00CCDE2F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A96449F616E11E9B00CCDE2F /* PBXTargetDependency */,
+			);
+			name = mySharePositionTests;
+			productName = mySharePositionTests;
+			productReference = A96449F016E11E9B00CCDE2F /* mySharePositionTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A96449B716E11E9A00CCDE2F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SharePosition;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Algos;
+			};
+			buildConfigurationList = A96449BA16E11E9A00CCDE2F /* Build configuration list for PBXProject "mySharePosition" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A96449B616E11E9A00CCDE2F;
+			productRefGroup = A96449C016E11E9A00CCDE2F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A96449BE16E11E9A00CCDE2F /* mySharePosition */,
+				A96449EF16E11E9B00CCDE2F /* mySharePositionTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A96449BD16E11E9A00CCDE2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A96449CD16E11E9A00CCDE2F /* InfoPlist.strings in Resources */,
+				A96449D516E11E9A00CCDE2F /* Default.png in Resources */,
+				A96449D716E11E9A00CCDE2F /* Default@2x.png in Resources */,
+				A96449D916E11E9A00CCDE2F /* Default-568h@2x.png in Resources */,
+				A96449DC16E11E9A00CCDE2F /* MainStoryboard.storyboard in Resources */,
+				A96449E116E11E9A00CCDE2F /* first.png in Resources */,
+				A96449E316E11E9A00CCDE2F /* first@2x.png in Resources */,
+				A96449E816E11E9A00CCDE2F /* second.png in Resources */,
+				A96449EA16E11E9A00CCDE2F /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A96449ED16E11E9B00CCDE2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A96449FC16E11E9B00CCDE2F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A96449EE16E11E9B00CCDE2F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A96449BB16E11E9A00CCDE2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A96449CF16E11E9A00CCDE2F /* main.m in Sources */,
+				A96449D316E11E9A00CCDE2F /* SharePositionAppDelegate.m in Sources */,
+				A96449DF16E11E9A00CCDE2F /* SharePositionFirstViewController.m in Sources */,
+				A96449E616E11E9A00CCDE2F /* SharePositionSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A96449EB16E11E9B00CCDE2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A96449FF16E11E9B00CCDE2F /* mySharePositionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A96449F616E11E9B00CCDE2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A96449BE16E11E9A00CCDE2F /* mySharePosition */;
+			targetProxy = A96449F516E11E9B00CCDE2F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A96449CB16E11E9A00CCDE2F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A96449CC16E11E9A00CCDE2F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A96449DA16E11E9A00CCDE2F /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A96449DB16E11E9A00CCDE2F /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		A96449FA16E11E9B00CCDE2F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A96449FB16E11E9B00CCDE2F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9644A0016E11E9B00CCDE2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A9644A0116E11E9B00CCDE2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9644A0316E11E9B00CCDE2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mySharePosition/mySharePosition-Prefix.pch";
+				INFOPLIST_FILE = "mySharePosition/mySharePosition-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A9644A0416E11E9B00CCDE2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mySharePosition/mySharePosition-Prefix.pch";
+				INFOPLIST_FILE = "mySharePosition/mySharePosition-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A9644A0616E11E9B00CCDE2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/mySharePosition.app/mySharePosition";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mySharePosition/mySharePosition-Prefix.pch";
+				INFOPLIST_FILE = "mySharePositionTests/mySharePositionTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A9644A0716E11E9B00CCDE2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/mySharePosition.app/mySharePosition";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mySharePosition/mySharePosition-Prefix.pch";
+				INFOPLIST_FILE = "mySharePositionTests/mySharePositionTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A96449BA16E11E9A00CCDE2F /* Build configuration list for PBXProject "mySharePosition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9644A0016E11E9B00CCDE2F /* Debug */,
+				A9644A0116E11E9B00CCDE2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9644A0216E11E9B00CCDE2F /* Build configuration list for PBXNativeTarget "mySharePosition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9644A0316E11E9B00CCDE2F /* Debug */,
+				A9644A0416E11E9B00CCDE2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A9644A0516E11E9B00CCDE2F /* Build configuration list for PBXNativeTarget "mySharePositionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9644A0616E11E9B00CCDE2F /* Debug */,
+				A9644A0716E11E9B00CCDE2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A96449B716E11E9A00CCDE2F /* Project object */;
+}
