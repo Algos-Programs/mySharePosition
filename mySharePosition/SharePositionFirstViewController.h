@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "MapLocation.h"
 
-@interface SharePositionFirstViewController : UIViewController
+@interface SharePositionFirstViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate, MKAnnotation>
 
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @end
