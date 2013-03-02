@@ -39,6 +39,8 @@
 		A96449FC16E11E9B00CCDE2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A96449FA16E11E9B00CCDE2F /* InfoPlist.strings */; };
 		A96449FF16E11E9B00CCDE2F /* mySharePositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A96449FE16E11E9B00CCDE2F /* mySharePositionTests.m */; };
 		A9644A0916E11F0700CCDE2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9644A0816E11F0700CCDE2F /* MapKit.framework */; };
+		A9D77A2816E22D4F00CDD2E9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D77A2716E22D4F00CDD2E9 /* MessageUI.framework */; };
+		A9D77A2B16E2372F00CDD2E9 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D77A2A16E2372F00CDD2E9 /* Message.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,9 @@
 		A96449FD16E11E9B00CCDE2F /* mySharePositionTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mySharePositionTests.h; sourceTree = "<group>"; };
 		A96449FE16E11E9B00CCDE2F /* mySharePositionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mySharePositionTests.m; sourceTree = "<group>"; };
 		A9644A0816E11F0700CCDE2F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A9D77A2716E22D4F00CDD2E9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A9D77A2916E2372F00CDD2E9 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		A9D77A2A16E2372F00CDD2E9 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D77A2816E22D4F00CDD2E9 /* MessageUI.framework in Frameworks */,
 				A93AA3FA16E139D100CFCB71 /* CoreLocation.framework in Frameworks */,
 				A9644A0916E11F0700CCDE2F /* MapKit.framework in Frameworks */,
 				A96449C316E11E9A00CCDE2F /* UIKit.framework in Frameworks */,
@@ -138,6 +144,7 @@
 		A96449B616E11E9A00CCDE2F = {
 			isa = PBXGroup;
 			children = (
+				A9D77A2716E22D4F00CDD2E9 /* MessageUI.framework */,
 				A93AA3F916E139D100CFCB71 /* CoreLocation.framework */,
 				A9644A0816E11F0700CCDE2F /* MapKit.framework */,
 				A96449C816E11E9A00CCDE2F /* mySharePosition */,
@@ -170,6 +177,7 @@
 		A96449C816E11E9A00CCDE2F /* mySharePosition */ = {
 			isa = PBXGroup;
 			children = (
+				A9D77A2C16E2373400CDD2E9 /* Libreria */,
 				A93AA41116E1678000CFCB71 /* Images */,
 				A93AA3FB16E141D800CFCB71 /* MapLocation.h */,
 				A93AA3FC16E141D800CFCB71 /* MapLocation.m */,
@@ -220,6 +228,15 @@
 				A96449FA16E11E9B00CCDE2F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9D77A2C16E2373400CDD2E9 /* Libreria */ = {
+			isa = PBXGroup;
+			children = (
+				A9D77A2916E2372F00CDD2E9 /* Message.h */,
+				A9D77A2A16E2372F00CDD2E9 /* Message.m */,
+			);
+			name = Libreria;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +367,7 @@
 				A96449DF16E11E9A00CCDE2F /* SharePositionFirstViewController.m in Sources */,
 				A96449E616E11E9A00CCDE2F /* SharePositionSecondViewController.m in Sources */,
 				A93AA3FD16E141D800CFCB71 /* MapLocation.m in Sources */,
+				A9D77A2B16E2372F00CDD2E9 /* Message.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

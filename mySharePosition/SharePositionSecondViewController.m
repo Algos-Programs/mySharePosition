@@ -28,4 +28,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)changeSwitchEmail:(id)sender {
+    int c = 3;
+}
+
+- (IBAction)changeSwitchSMS:(id)sender {
+    int ji =4;
+}
 @end

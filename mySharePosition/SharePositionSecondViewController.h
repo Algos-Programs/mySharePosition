@@ -10,4 +10,10 @@
 
 @interface SharePositionSecondViewController : UIViewController
 
+- (IBAction)changeSwitchEmail:(id)sender;
+- (IBAction)changeSwitchSMS:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISwitch *switchEmail;
+@property (weak, nonatomic) IBOutlet UISwitch *switchSMS;
+
 @end
