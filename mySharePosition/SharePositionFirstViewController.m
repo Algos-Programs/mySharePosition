@@ -20,6 +20,9 @@
     [super viewDidLoad];
     self.mapView.mapType = MKMapTypeHybrid;
     
+    textMessage = @"I'm Here!";
+    textEmail = textMessage;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -30,9 +33,12 @@
     [SharePositionFirstViewController zoomMap:self.mapView];
     
     //-- Annotation
-   MKAnnotationView *annotationView;// = [[MKAnnotationView alloc] initWithFrame:CGRectMake(50.0, 50.0, 300.0, 25.0)];
+    MKAnnotationView *annotationView;// = [[MKAnnotationView alloc] initWithFrame:CGRectMake(50.0, 50.0, 300.0, 25.0)];
+    gecoder = [[CLGeocoder alloc] init];
     
+    [self reverseGeocode:[SharePositionFirstViewController findCurrentLocation]];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -76,21 +82,83 @@
     return location;
 }
 
-- (void)test:(CLLocationCoordinate2D )location {
+- (void)reverseGeocode:(CLLocation *)location
+{
+    if (!gecoder)
+        gecoder = [[CLGeocoder alloc] init];
     
-    CLLocationDegrees leftDegrees = self.mapView.region.center.longitude - (self.mapView.region.span.longitudeDelta / 2.0);
-    CLLocationDegrees rightDegrees = self.mapView.region.center.longitude + (self.mapView.region.span.longitudeDelta  / 2.0);
-    CLLocationDegrees bottomDegrees = self.mapView.region.center.latitude - (self.mapView.region.span.latitudeDelta / 2.0);
-    CLLocationDegrees topDegrees = self.mapView.region.center.latitude + (self.mapView.region.span.latitudeDelta / 2.0);
-    
-    if (leftDegrees > rightDegrees) {
-        leftDegrees = -180.0 - leftDegrees;
-        if (location.longitude > 0) {
-            location.longitude = -180.0 - location.longitude;
+    [gecoder reverseGeocodeLocation:location completionHandler:^(NSArray* placemarks, NSError* error){
+        if (nil != error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error translating coordinates into location", @"Error translating coordinates into location")
+                                                            message:NSLocalizedString(@"Geocoder did not recognize coordinates", @"Geocoder did not recognize coordinates")
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                                                  otherButtonTitles:nil];
+            [alert show];
+            
         }
-    }
+        else if ([placemarks count] > 0) {
+            placemark = [placemarks objectAtIndex:0];
+            MapLocation *annotation = [[MapLocation alloc] init];
+            annotation.street = placemark.thoroughfare;
+            annotation.city = placemark.locality;
+            annotation.state = placemark.administrativeArea;
+            annotation.zip = placemark.postalCode;
+            annotation.coordinate = location.coordinate;
+            
+            [self setInfoLocationFrom:nil];
+            //[self.mapView addAnnotation:annotation];
+        }
+    }];
 }
 
+- (void)setLocationArgoments:(CLLocation *)location {
+    
+    if (!gecoder) {
+        gecoder = [[CLGeocoder alloc] init];
+    }
+    
+    [gecoder reverseGeocodeLocation:location completionHandler:^(NSArray* placemarks, NSError* error){
+        if (nil != error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error translating coordinates into location", @"Error translating coordinates into location")
+                                                            message:NSLocalizedString(@"Geocoder did not recognize coordinates", @"Geocoder did not recognize coordinates")
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                                                  otherButtonTitles:nil];
+            [alert show];
+            
+        }
+        else if ([placemarks count] > 0) {
+            placemark = [placemarks objectAtIndex:0];
+            
+            [self setLocationArgoments:nil];
+/*
+        //Setto variabili
+            streetAdress = [placemark thoroughfare];
+            streetAdressSecondLine = [placemark subThoroughfare];
+            city = [placemark locality];
+            subLocality = [placemark subLocality];
+            state = [placemark administrativeArea];
+            ZIPCode = [placemark postalCode];
+            country = country;
+*/
+        }
+    }];
+}
+
+- (void)setInfoLocationFrom:(CLPlacemark *)aPlacemark {
+    
+    if (aPlacemark == nil) {
+        aPlacemark = placemark;
+    }
+    streetAdress = [aPlacemark thoroughfare];
+    streetAdressSecondLine = [aPlacemark subThoroughfare];
+    city = [aPlacemark locality];
+    subLocality = [aPlacemark subLocality];
+    state = [aPlacemark administrativeArea];
+    ZIPCode = [aPlacemark postalCode];
+    country = [aPlacemark country];
+}
 //************************************
 #pragma mark - Alert Methods
 //************************************
@@ -105,6 +173,23 @@
     
     [alert show];
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    
+    switch (buttonIndex) {
+        case 0: // SMS
+            [self sendMessageWithNumbers:nil withText:nil withLocation:[SharePositionFirstViewController findCurrentLocation]];
+            break;
+            
+        case 1: //Email
+            [self sendEMailWithNumbers:nil withText:nil withLocation:[SharePositionFirstViewController findCurrentLocation]];
+            break;
+        default:
+            break;
+    }
+}
+
 
 //************************************
 #pragma mark - MapView Methods
@@ -189,9 +274,12 @@
 	if([MFMessageComposeViewController canSendText])
 	{
         NSString *coordinateStr = [NSString alloc];
+        NSString *adressString = [NSString alloc];
         if (location != nil) {
             CLLocationCoordinate2D coordinate=[location coordinate];
             coordinateStr = [coordinateStr initWithFormat:@"\nMi trovo qui: \nLatitudine: %f \nLongitudine: %f\n",coordinate.latitude, coordinate.longitude];
+            
+            adressString = [adressString initWithString:[self setStringFromInfoLocation]];
             
             NSString *googleUrl = [[NSString alloc] initWithString:[SharePositionFirstViewController googleMapsURL:location]];
             
@@ -202,6 +290,10 @@
             coordinateStr = [coordinateStr initWithString:@""];
         }
         
+        if (text == nil) {
+            text = @"";
+        }
+        text = [text stringByAppendingString:adressString];
         text = [text stringByAppendingString:coordinateStr];
         controller.body = text;
         controller.recipients = numbers;
@@ -219,15 +311,24 @@
     MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
     if ([MFMailComposeViewController canSendMail]) {
         NSString *coordinateStr = [NSString alloc];
+        NSString *addressStr = [NSString alloc];
         if (location != nil) {
             CLLocationCoordinate2D coordinate = [location coordinate];
             coordinateStr = [coordinateStr initWithFormat:@"\nMi trovo qui: \nLatitudine: %f \nLongitudine: %f\n",coordinate.latitude, coordinate.longitude];
+            
+            addressStr = [addressStr initWithString:[self setStringFromInfoLocation]];
+            
             NSString *googleURL = [[NSString alloc] initWithString:[SharePositionFirstViewController googleMapsURL:location]];
             coordinateStr = [coordinateStr stringByAppendingString:googleURL];
         }
         else {
             coordinateStr = [coordinateStr initWithString:@""];
         }
+        if (text == nil) {
+            text = [text initWithString:@""];
+        }
+
+        text = [text stringByAppendingString:addressStr];
         text = [text stringByAppendingString:coordinateStr];
         [mailController setSubject:@"I'm Here!"]; // OGGETTO
         [mailController setWantsFullScreenLayout:YES];
@@ -254,15 +355,13 @@
 			break;
 	}
     
-    if (withMessage) {
-        [self sendMessageWithNumbers:nil withText:@"Try this" withLocation:[SharePositionFirstViewController findCurrentLocation]];
-    }
-    
-	//[self dismissModalViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 
+//****************************************
+#pragma mark - Set String Methods
+//****************************************
 
 /**
  Genera un url di google maps passata la location
@@ -272,19 +371,13 @@
     return googleUrl;
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (NSString *)setStringFromInfoLocation {
     
-    switch (buttonIndex) {
-        case 0: // SMS
-            [self sendMessageWithNumbers:nil withText:@"TEXT" withLocation:[SharePositionFirstViewController findCurrentLocation]];
-            break;
-           
-        case 1: //Email
-            [self sendEMailWithNumbers:nil withText:@"TEXT" withLocation:[SharePositionFirstViewController findCurrentLocation]];
-            break;
-        default:
-            break;
-    }
+    NSString *str = [[NSString alloc] initWithFormat:@"%@ %@, %@, %@, %@ %@\n", streetAdress, streetAdressSecondLine, city, ZIPCode, state, country];
+    
+    return str;
 }
+
+
 
 @end

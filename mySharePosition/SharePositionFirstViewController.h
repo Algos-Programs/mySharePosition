@@ -15,8 +15,19 @@
 
 @interface SharePositionFirstViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate, MKAnnotation, MFMessageComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate> {
     
-    BOOL withMessage;
-    BOOL withEmail;
+    CLGeocoder *gecoder;
+    CLPlacemark *placemark;
+    
+    NSString *streetAdress;
+    NSString *streetAdressSecondLine;
+    NSString *city;
+    NSString *subLocality;
+    NSString *state;
+    NSString *ZIPCode;
+    NSString *country;
+    
+    NSString *textMessage;
+    NSString *textEmail;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
