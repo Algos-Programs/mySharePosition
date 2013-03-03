@@ -145,10 +145,10 @@
 //************************************
 
 - (IBAction)pressButtonSharePosition:(id)sender {
-    static NSString *str = @"Text to try";
-
-    //[self sendMessageWithNumbers:nil withText:str withLocation:[SharePositionFirstViewController findCurrentLocation]];
-    [self sendEMailWithNumbers:nil withText:str withLocation:[SharePositionFirstViewController findCurrentLocation]];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:@"Condividi Posizione" delegate:self cancelButtonTitle:@"SMS" otherButtonTitles:@"Email", nil];
+    
+    [alertView show];    
 }
 
 //************************************
@@ -174,10 +174,7 @@
 		default:
 			break;
 	}
-    
-	//[self dismissModalViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 /**
@@ -257,6 +254,10 @@
 			break;
 	}
     
+    if (withMessage) {
+        [self sendMessageWithNumbers:nil withText:@"Try this" withLocation:[SharePositionFirstViewController findCurrentLocation]];
+    }
+    
 	//[self dismissModalViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 
@@ -271,5 +272,19 @@
     return googleUrl;
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (buttonIndex) {
+        case 0: // SMS
+            [self sendMessageWithNumbers:nil withText:@"TEXT" withLocation:[SharePositionFirstViewController findCurrentLocation]];
+            break;
+           
+        case 1: //Email
+            [self sendEMailWithNumbers:nil withText:@"TEXT" withLocation:[SharePositionFirstViewController findCurrentLocation]];
+            break;
+        default:
+            break;
+    }
+}
 
 @end

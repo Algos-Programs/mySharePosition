@@ -11,8 +11,13 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MapLocation.h"
 #import <MessageUI/MessageUI.h>
+#import "MFile.h"
 
-@interface SharePositionFirstViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate, MKAnnotation, MFMessageComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
+@interface SharePositionFirstViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate, MKAnnotation, MFMessageComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate> {
+    
+    BOOL withMessage;
+    BOOL withEmail;
+}
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 

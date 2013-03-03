@@ -41,6 +41,8 @@
 		A9644A0916E11F0700CCDE2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9644A0816E11F0700CCDE2F /* MapKit.framework */; };
 		A9D77A2816E22D4F00CDD2E9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D77A2716E22D4F00CDD2E9 /* MessageUI.framework */; };
 		A9D77A2B16E2372F00CDD2E9 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D77A2A16E2372F00CDD2E9 /* Message.m */; };
+		A9D77A2F16E2386100CDD2E9 /* MFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D77A2E16E2386100CDD2E9 /* MFile.m */; };
+		A9D77A3116E2389500CDD2E9 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9D77A3016E2389500CDD2E9 /* File.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,9 @@
 		A9D77A2716E22D4F00CDD2E9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A9D77A2916E2372F00CDD2E9 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A9D77A2A16E2372F00CDD2E9 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		A9D77A2D16E2386100CDD2E9 /* MFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFile.h; sourceTree = "<group>"; };
+		A9D77A2E16E2386100CDD2E9 /* MFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFile.m; sourceTree = "<group>"; };
+		A9D77A3016E2389500CDD2E9 /* File.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +182,7 @@
 		A96449C816E11E9A00CCDE2F /* mySharePosition */ = {
 			isa = PBXGroup;
 			children = (
+				A9D77A3216E2392E00CDD2E9 /* Model */,
 				A9D77A2C16E2373400CDD2E9 /* Libreria */,
 				A93AA41116E1678000CFCB71 /* Images */,
 				A93AA3FB16E141D800CFCB71 /* MapLocation.h */,
@@ -207,6 +213,7 @@
 				A96449D416E11E9A00CCDE2F /* Default.png */,
 				A96449D616E11E9A00CCDE2F /* Default@2x.png */,
 				A96449D816E11E9A00CCDE2F /* Default-568h@2x.png */,
+				A9D77A3016E2389500CDD2E9 /* File.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,8 +242,17 @@
 			children = (
 				A9D77A2916E2372F00CDD2E9 /* Message.h */,
 				A9D77A2A16E2372F00CDD2E9 /* Message.m */,
+				A9D77A2D16E2386100CDD2E9 /* MFile.h */,
+				A9D77A2E16E2386100CDD2E9 /* MFile.m */,
 			);
 			name = Libreria;
+			sourceTree = "<group>";
+		};
+		A9D77A3216E2392E00CDD2E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +344,7 @@
 				A93AA40C16E1651500CFCB71 /* background_with_label.png in Resources */,
 				A93AA40E16E166C500CFCB71 /* button_save.png in Resources */,
 				A93AA41016E1671100CFCB71 /* button_save2.png in Resources */,
+				A9D77A3116E2389500CDD2E9 /* File.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A96449FF16E11E9B00CCDE2F /* mySharePositionTests.m in Sources */,
+				A9D77A2F16E2386100CDD2E9 /* MFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
