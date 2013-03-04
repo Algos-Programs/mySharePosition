@@ -325,7 +325,7 @@
             coordinateStr = [coordinateStr initWithString:@""];
         }
         if (text == nil) {
-            text = [text initWithString:@""];
+            text = @"";
         }
 
         text = [text stringByAppendingString:addressStr];
