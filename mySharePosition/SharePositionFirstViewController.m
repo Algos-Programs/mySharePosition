@@ -158,6 +158,8 @@
     state = [aPlacemark administrativeArea];
     ZIPCode = [aPlacemark postalCode];
     country = [aPlacemark country];
+    
+    
 }
 //************************************
 #pragma mark - Alert Methods
