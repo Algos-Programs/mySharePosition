@@ -7,8 +7,8 @@
 //
 
 #import "SharePositionFirstViewController.h"
-#import "MInfoLocatios.h"
-#import "MFile.h"
+//#import "MInfoLocatios.h"
+//#import "MFile.h"
 
 @interface SharePositionFirstViewController ()
 
@@ -30,19 +30,22 @@
     
     textMessage = @"I'm Here!";
     textEmail = textMessage;
-    
+    withAnnotation = NO;
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     
-    //Mostro all'utente la sua posizione sulla mappa.
+    // Mostro all'utente la sua posizione sulla mappa.
     self.mapView.showsUserLocation = YES;
     
+    // Effettuo uno zoom sulla mappa.
     [SharePositionFirstViewController zoomMap:self.mapView withLatitudinalMeters:1000 andLongitudinalMeters:1000];
     
-    //-- Annotation
+    // Init Geocoder.
     gecoder = [[CLGeocoder alloc] init];
     
+    // Preparo e inizializzo le informazioni di localizzazione.
     [self reverseGeocode:[SharePositionFirstViewController findCurrentLocation]];
 }
 
@@ -70,6 +73,9 @@
     [mapView setRegion:adjustingRegion animated:YES];
 }
 
+/**
+    Fa uno zoom PERSONALIZZATO sulla mappa nel punto in cui ti trovi.
+ */
 + (void)zoomMap:(MKMapView *)mapView withLatitudinalMeters:(double)latitudinalMeters andLongitudinalMeters:(double)longitudinalMeters{
     
     CLLocation *location = [SharePositionFirstViewController findCurrentLocation];
@@ -81,13 +87,14 @@
 }
 
 /**
- Restituisce la localizzazione attuale.
+    Restituisce la localizzazione attuale.
  */
 + (CLLocation*)findCurrentLocation
 {
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
     
     if ([CLLocationManager locationServicesEnabled]) {
+        
         //Questo metodo chiede all'utente se l'app può essere localizzata.
         [locationManager startUpdatingLocation];
         locationManager.delegate = locationManager.delegate;
@@ -95,10 +102,15 @@
         locationManager.distanceFilter = kCLDistanceFilterNone;
     }
     CLLocation *location = [locationManager location];    
-    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:googleMapsURLString]];
+    
     return location;
 }
 
+/**
+    Recupera le informazioni di localizzazione come via e numero civico.
+    Inserisce AnnotationView (se il flag è attivo)
+    Imposta i valori della localizzazione
+ */
 - (void)reverseGeocode:(CLLocation *)location
 {
     if (!gecoder)
@@ -116,53 +128,27 @@
         }
         else if ([placemarks count] > 0) {
             placemark = [placemarks objectAtIndex:0];
-            MapLocation *annotation = [[MapLocation alloc] init];
-            annotation.street = placemark.thoroughfare;
-            annotation.city = placemark.locality;
-            annotation.state = placemark.administrativeArea;
-            annotation.zip = placemark.postalCode;
-            annotation.coordinate = location.coordinate;
+            
+            if (withAnnotation) {
+                MapLocation *annotation = [[MapLocation alloc] init];
+                annotation.street = placemark.thoroughfare;
+                annotation.city = placemark.locality;
+                annotation.state = placemark.administrativeArea;
+                annotation.zip = placemark.postalCode;
+                annotation.coordinate = location.coordinate;
+                
+                [self.mapView addAnnotation:annotation];
+
+            }
             
             [self setInfoLocationFrom:nil];
-            //[self.mapView addAnnotation:annotation];
         }
     }];
 }
 
-- (void)setLocationArgoments:(CLLocation *)location {
-    
-    if (!gecoder) {
-        gecoder = [[CLGeocoder alloc] init];
-    }
-    
-    [gecoder reverseGeocodeLocation:location completionHandler:^(NSArray* placemarks, NSError* error){
-        if (nil != error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error translating coordinates into location", @"Error translating coordinates into location")
-                                                            message:NSLocalizedString(@"Geocoder did not recognize coordinates", @"Geocoder did not recognize coordinates")
-                                                           delegate:self
-                                                  cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
-                                                  otherButtonTitles:nil];
-            [alert show];
-            
-        }
-        else if ([placemarks count] > 0) {
-            placemark = [placemarks objectAtIndex:0];
-            
-            [self setLocationArgoments:nil];
-/*
-        //Setto variabili
-            streetAdress = [placemark thoroughfare];
-            streetAdressSecondLine = [placemark subThoroughfare];
-            city = [placemark locality];
-            subLocality = [placemark subLocality];
-            state = [placemark administrativeArea];
-            ZIPCode = [placemark postalCode];
-            country = country;
-*/
-        }
-    }];
-}
-
+/**
+    Imposta i le variabili di istanza sulla localizzazione.
+ */
 - (void)setInfoLocationFrom:(CLPlacemark *)aPlacemark {
     
     if (aPlacemark == nil) {
@@ -176,36 +162,16 @@
     ZIPCode = [aPlacemark postalCode];
     country = [aPlacemark country];
     
-    
-    MInfoLocatios *mInfo = [[MInfoLocatios alloc] init];
-    mInfo.streetAdress = [aPlacemark thoroughfare];
-    mInfo.streetAdressSecondLine = [aPlacemark subThoroughfare];
-    mInfo.city = [aPlacemark locality];
-    mInfo.subLocality = [aPlacemark subLocality];
-    mInfo.state = [aPlacemark administrativeArea];
-    mInfo.ZIPCode = [aPlacemark postalCode];
-    mInfo.country = [aPlacemark country];
-    
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:mInfo,@"KEY", nil];
-    [MFile writeDictionary:dic];
-
-    
 }
+
 //************************************
 #pragma mark - Alert Methods
 //************************************
 
-- (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:@"Error loading map"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OKay"
-                                          otherButtonTitles:nil, nil];
-    
-    [alert show];
-}
-
+/**
+    Risposta al click dell'alertView 
+    (SMS, Email, Cancel).
+ */
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     
@@ -230,43 +196,31 @@
 #pragma mark - MapView Methods
 //************************************
 
-- (MKAnnotationView *)mapView:(MKMapView *)aMapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    
-    static NSString *placemarkIdentifier = @"Map Location Identifier";
-    if ([annotation isKindOfClass:[MapLocation class]]) {
-        MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[aMapView dequeueReusableAnnotationViewWithIdentifier:placemarkIdentifier];
-        if (nil == annotationView) {
-            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
-                                                             reuseIdentifier:placemarkIdentifier];
-            annotationView.image = [UIImage imageNamed:@"prova.jpg"];
-        }
-        else
-            annotationView.annotation = annotation;
-        
-        annotationView.enabled = YES;
-        annotationView.animatesDrop = YES;
-        annotationView.pinColor = MKPinAnnotationColorPurple;
-        annotationView.canShowCallout = YES;
-        
-        [self performSelector:@selector(openCallout:) withObject:annotation afterDelay:0.5];
-        
-        /*
-        self.progressBar.progress = 0.75;
-        self.progressLabel.text = NSLocalizedString(@"Creating Annotation", @"Creating Annotation");
-        */
-        return annotationView;
-    }
-    return nil;
 
+/**
+ Imposa l'alert da visualizzare se fallisce il caricamento della mappa.
+ */
+- (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:@"Error loading map"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OKay"
+                                          otherButtonTitles:nil, nil];
+    
+    [alert show];
 }
+
 
 //************************************
 #pragma mark - Acion Methods
 //************************************
 
+/**
+    Quando premi il bottone Share Position viene attivo l'alertView che permette di scegliere come condividere la posizione
+    Per SMS oppure tramite EMail
+ */
 - (IBAction)pressButtonSharePosition:(id)sender {
-    
-   // UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:@"Condividi Posizione" delegate:self cancelButtonTitle:@"SMS" otherButtonTitles:@"Email", nil];
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SMS", @"Email", nil];
 
@@ -278,27 +232,6 @@
 #pragma mark - Message Methods
 //************************************
 
-/**
- Decido cosa fare a seconda dell'esito del messaggio.
- (Send o Cancel)
- */
-- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
-    
-    switch (result) {
-		case MessageComposeResultCancelled:
-			NSLog(@"Cancelled");
-			break;
-		case MessageComposeResultFailed:
-			break;
-		case MessageComposeResultSent:
-			NSLog(@"sent Message");
-            [self.navigationController popToRootViewControllerAnimated:YES];
-			break;
-		default:
-			break;
-	}
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 /**
  Invia un messaggio
@@ -341,10 +274,38 @@
 	}
 }
 
+/**
+    Decido cosa fare a seconda dell'esito del messaggio.
+    (Send o Cancel)
+ */
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    
+    switch (result) {
+		case MessageComposeResultCancelled:
+			NSLog(@"Cancelled");
+			break;
+		case MessageComposeResultFailed:
+			break;
+		case MessageComposeResultSent:
+			NSLog(@"sent Message");
+            [self.navigationController popToRootViewControllerAnimated:YES];
+			break;
+		default:
+			break;
+	}
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 //************************************
 #pragma mark - E-Mail Methods
 //************************************
 
+/**
+ Invia un' Email
+ Destinatari: Array
+ Testo: text
+ Location: se NON è nil le inserisce nel testo nel messaggio.
+ */
 - (void)sendEMailWithNumbers:(NSArray *)numbers withText:(NSString *)text withLocation:(CLLocation *)location {
     MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
     if ([MFMailComposeViewController canSendMail]) {
@@ -374,9 +335,12 @@
         [self presentViewController:mailController animated:YES completion:nil];
         mailController.mailComposeDelegate = self;
     }
-
 }
 
+/**
+    Decido cosa fare a seconda dell'esito del messaggio.
+    (Send o Cancel)
+ */
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     
     switch (result) {
@@ -402,7 +366,7 @@
 //****************************************
 
 /**
- Genera un url di google maps passata la location
+    Genera un url di google maps passata la location
  */
 + (NSString *)googleMapsURL:(CLLocation *)location {
     NSString *googleUrl = [NSString stringWithFormat:@"\nhttps://maps.google.it/maps?saddr=%f,%f", location.coordinate.latitude, location.coordinate.longitude];
@@ -410,13 +374,10 @@
 }
 
 /**
- Se le variabili sono nil allora le inizializzo con @""
+    Se le variabili sono nil allora le inizializzo con @""
  */
 - (void)initVariablesIfNil {
-    if (streetAdress) {
-        streetAdress = @"";
-    }
-    
+
     if (streetAdressSecondLine == nil) {
         streetAdressSecondLine = @"";
     }
@@ -438,6 +399,9 @@
     }
 }
 
+/**
+    Imposta la strinnga con i valori delle impostazioni.
+ */
 - (NSString *)setStringFromInfoLocation {
     
     [self initVariablesIfNil];

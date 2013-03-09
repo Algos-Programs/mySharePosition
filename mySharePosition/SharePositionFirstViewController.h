@@ -11,13 +11,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MapLocation.h"
 #import <MessageUI/MessageUI.h>
-#import "MFile.h"
 
 @interface SharePositionFirstViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate, MKAnnotation, MFMessageComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate> {
     
+    //-- Localizzazione
     CLGeocoder *gecoder;
     CLPlacemark *placemark;
     
+    //-- Info Localizzione
     NSString *streetAdress;
     NSString *streetAdressSecondLine;
     NSString *city;
@@ -26,12 +27,16 @@
     NSString *ZIPCode;
     NSString *country;
     
+    //-- Testo dei messaggi
     NSString *textMessage;
     NSString *textEmail;
+    
+    BOOL withAnnotation;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+//-- Info Localizzione
 @property (nonatomic, strong)NSString *streetAdress;
 @property (nonatomic, strong)NSString *streetAdressSecondLine;
 @property (nonatomic, strong)NSString *city;
