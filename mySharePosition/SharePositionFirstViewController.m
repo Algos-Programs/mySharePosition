@@ -7,6 +7,8 @@
 //
 
 #import "SharePositionFirstViewController.h"
+#import "MInfoLocatios.h"
+#import "MFile.h"
 
 @interface SharePositionFirstViewController ()
 
@@ -14,6 +16,12 @@
 
 @implementation SharePositionFirstViewController
 @synthesize mapView;
+@synthesize streetAdress;
+@synthesize streetAdressSecondLine;
+@synthesize city;
+@synthesize state;
+@synthesize ZIPCode;
+@synthesize country;
 
 - (void)viewDidLoad
 {
@@ -160,6 +168,19 @@
     country = [aPlacemark country];
     
     
+    MInfoLocatios *mInfo = [[MInfoLocatios alloc] init];
+    mInfo.streetAdress = [aPlacemark thoroughfare];
+    mInfo.streetAdressSecondLine = [aPlacemark subThoroughfare];
+    mInfo.city = [aPlacemark locality];
+    mInfo.subLocality = [aPlacemark subLocality];
+    mInfo.state = [aPlacemark administrativeArea];
+    mInfo.ZIPCode = [aPlacemark postalCode];
+    mInfo.country = [aPlacemark country];
+    
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:mInfo,@"KEY", nil];
+    [MFile writeDictionary:dic];
+
+    
 }
 //************************************
 #pragma mark - Alert Methods
@@ -180,11 +201,14 @@
     
     
     switch (buttonIndex) {
-        case 0: // SMS
+        case 0: // cancel
+            break;
+            
+        case 1:// SMS
             [self sendMessageWithNumbers:nil withText:nil withLocation:[SharePositionFirstViewController findCurrentLocation]];
             break;
             
-        case 1: //Email
+        case 2: //Email
             [self sendEMailWithNumbers:nil withText:nil withLocation:[SharePositionFirstViewController findCurrentLocation]];
             break;
         default:
@@ -233,7 +257,10 @@
 
 - (IBAction)pressButtonSharePosition:(id)sender {
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:@"Condividi Posizione" delegate:self cancelButtonTitle:@"SMS" otherButtonTitles:@"Email", nil];
+   // UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:@"Condividi Posizione" delegate:self cancelButtonTitle:@"SMS" otherButtonTitles:@"Email", nil];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SMS", @"Email", nil];
+
     
     [alertView show];    
 }

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InfoLocationsViewController : UITableViewController
+@interface InfoLocationsViewController : UITableViewController {
+    
+    NSMutableArray *array;
+    NSArray *arrayNames;
+}
 
 @end

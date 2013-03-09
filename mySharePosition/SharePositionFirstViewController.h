@@ -32,6 +32,13 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+@property (nonatomic, strong)NSString *streetAdress;
+@property (nonatomic, strong)NSString *streetAdressSecondLine;
+@property (nonatomic, strong)NSString *city;
+@property (nonatomic, strong)NSString *state;
+@property (nonatomic, strong)NSString *ZIPCode;
+@property (nonatomic, strong)NSString *country;
+
 - (IBAction)pressButtonSharePosition:(id)sender;
 
 @end

@@ -18,7 +18,7 @@
 		A93AA40E16E166C500CFCB71 /* button_save.png in Resources */ = {isa = PBXBuildFile; fileRef = A93AA40D16E166C500CFCB71 /* button_save.png */; };
 		A93AA41016E1671100CFCB71 /* button_save2.png in Resources */ = {isa = PBXBuildFile; fileRef = A93AA40F16E1671100CFCB71 /* button_save2.png */; };
 		A9623EDE16EA222A00ED480C /* InfoLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9623EDD16EA222A00ED480C /* InfoLocationsViewController.m */; };
-		A9623EE116EA226D00ED480C /* MInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A9623EE016EA226D00ED480C /* MInfo.m */; };
+		A9623EE416EA23A700ED480C /* MInfoLocatios.m in Sources */ = {isa = PBXBuildFile; fileRef = A9623EE316EA23A700ED480C /* MInfoLocatios.m */; };
 		A96449C316E11E9A00CCDE2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449C216E11E9A00CCDE2F /* UIKit.framework */; };
 		A96449C516E11E9A00CCDE2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449C416E11E9A00CCDE2F /* Foundation.framework */; };
 		A96449C716E11E9A00CCDE2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449C616E11E9A00CCDE2F /* CoreGraphics.framework */; };
@@ -71,8 +71,8 @@
 		A93AA40F16E1671100CFCB71 /* button_save2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_save2.png; sourceTree = "<group>"; };
 		A9623EDC16EA222A00ED480C /* InfoLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoLocationsViewController.h; sourceTree = "<group>"; };
 		A9623EDD16EA222A00ED480C /* InfoLocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoLocationsViewController.m; sourceTree = "<group>"; };
-		A9623EDF16EA226D00ED480C /* MInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInfo.h; sourceTree = "<group>"; };
-		A9623EE016EA226D00ED480C /* MInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInfo.m; sourceTree = "<group>"; };
+		A9623EE216EA23A700ED480C /* MInfoLocatios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MInfoLocatios.h; sourceTree = "<group>"; };
+		A9623EE316EA23A700ED480C /* MInfoLocatios.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MInfoLocatios.m; sourceTree = "<group>"; };
 		A96449BF16E11E9A00CCDE2F /* mySharePosition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mySharePosition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A96449C216E11E9A00CCDE2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A96449C416E11E9A00CCDE2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -258,8 +258,6 @@
 			children = (
 				A9D77A2916E2372F00CDD2E9 /* Message.h */,
 				A9D77A2A16E2372F00CDD2E9 /* Message.m */,
-				A9D77A2D16E2386100CDD2E9 /* MFile.h */,
-				A9D77A2E16E2386100CDD2E9 /* MFile.m */,
 			);
 			name = Libreria;
 			sourceTree = "<group>";
@@ -267,8 +265,10 @@
 		A9D77A3216E2392E00CDD2E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A9623EDF16EA226D00ED480C /* MInfo.h */,
-				A9623EE016EA226D00ED480C /* MInfo.m */,
+				A9623EE216EA23A700ED480C /* MInfoLocatios.h */,
+				A9623EE316EA23A700ED480C /* MInfoLocatios.m */,
+				A9D77A2D16E2386100CDD2E9 /* MFile.h */,
+				A9D77A2E16E2386100CDD2E9 /* MFile.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -404,7 +404,7 @@
 				A93AA3FD16E141D800CFCB71 /* MapLocation.m in Sources */,
 				A9D77A2B16E2372F00CDD2E9 /* Message.m in Sources */,
 				A9623EDE16EA222A00ED480C /* InfoLocationsViewController.m in Sources */,
-				A9623EE116EA226D00ED480C /* MInfo.m in Sources */,
+				A9623EE416EA23A700ED480C /* MInfoLocatios.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
