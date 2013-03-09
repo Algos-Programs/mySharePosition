@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.mapView.mapType = MKMapTypeHybrid;
+    self.mapView.mapType = MKMapTypeStandard;
     
     textMessage = @"I'm Here!";
     textEmail = textMessage;
@@ -38,10 +38,9 @@
     //Mostro all'utente la sua posizione sulla mappa.
     self.mapView.showsUserLocation = YES;
     
-    [SharePositionFirstViewController zoomMap:self.mapView];
+    [SharePositionFirstViewController zoomMap:self.mapView withLatitudinalMeters:1000 andLongitudinalMeters:1000];
     
     //-- Annotation
-    MKAnnotationView *annotationView;// = [[MKAnnotationView alloc] initWithFrame:CGRectMake(50.0, 50.0, 300.0, 25.0)];
     gecoder = [[CLGeocoder alloc] init];
     
     [self reverseGeocode:[SharePositionFirstViewController findCurrentLocation]];
@@ -59,7 +58,7 @@
 //************************************
 
 /**
-    Fa uno zoom sulla mappa nel punto in cui ti trovi.
+    Fa uno zoom STANDARD (2000 - 2000) sulla mappa nel punto in cui ti trovi.
  */
 + (void)zoomMap:(MKMapView *)mapView {
     
@@ -67,6 +66,16 @@
     CLLocationCoordinate2D coordinate2D = [location coordinate];
     
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate2D, 2000, 2000);
+    MKCoordinateRegion adjustingRegion = [mapView regionThatFits:viewRegion];
+    [mapView setRegion:adjustingRegion animated:YES];
+}
+
++ (void)zoomMap:(MKMapView *)mapView withLatitudinalMeters:(double)latitudinalMeters andLongitudinalMeters:(double)longitudinalMeters{
+    
+    CLLocation *location = [SharePositionFirstViewController findCurrentLocation];
+    CLLocationCoordinate2D coordinate2D = [location coordinate];
+        
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate2D, latitudinalMeters, longitudinalMeters);
     MKCoordinateRegion adjustingRegion = [mapView regionThatFits:viewRegion];
     [mapView setRegion:adjustingRegion animated:YES];
 }
@@ -400,8 +409,38 @@
     return googleUrl;
 }
 
+/**
+ Se le variabili sono nil allora le inizializzo con @""
+ */
+- (void)initVariablesIfNil {
+    if (streetAdress) {
+        streetAdress = @"";
+    }
+    
+    if (streetAdressSecondLine == nil) {
+        streetAdressSecondLine = @"";
+    }
+    
+    if (city == nil) {
+        city = @"";
+    }
+    
+    if (ZIPCode == nil) {
+        ZIPCode = @"";
+    }
+    
+    if (state == nil) {
+        state = @"";
+    }
+    
+    if (country == nil) {
+        country = @"";
+    }
+}
+
 - (NSString *)setStringFromInfoLocation {
     
+    [self initVariablesIfNil];
     NSString *str = [[NSString alloc] initWithFormat:@"%@ %@, %@, %@, %@ %@\n", streetAdress, streetAdressSecondLine, city, ZIPCode, state, country];
     
     return str;
