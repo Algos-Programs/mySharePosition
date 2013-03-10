@@ -30,13 +30,6 @@
 
     array = [[NSMutableArray alloc] init];
         
-    arrayNames = [[NSArray alloc] initWithObjects:@"Street Adress",
-                  @"Numero Civico",
-                  @"City",
-                  @"State",
-                  @"ZIP Code",
-                  @"Paese", nil];
-    
     arrayNames = [[NSArray alloc] initWithObjects:NSLocalizedString(@"STREET_ADRESS", @"Streed Adress"),
                   NSLocalizedString(@"HOUSE_NUMBER", @"House Number"),
                   NSLocalizedString(@"CITY", @"City"),
@@ -57,6 +50,7 @@
     SharePositionFirstViewController *svc = [self.tabBarController.viewControllers objectAtIndex:0]; 
     
     array = [array init];
+    [array removeAllObjects];
     
     //-- Inserisce nell'array.
     [self insertObj:(NSString *)svc.streetAdress];
@@ -66,8 +60,8 @@
     [self insertObj:svc.ZIPCode];
     [self insertObj:svc.country];
     
+    [self.tableView reloadData];
     
-    int k = 9;
     
 }
 - (void)didReceiveMemoryWarning
