@@ -7,7 +7,6 @@
 //
 
 #import "InfoLocationsViewController.h"
-#import "MFile.h"
 #import "SharePositionFirstViewController.h"
 
 @interface InfoLocationsViewController ()
@@ -29,10 +28,10 @@
 {
     [super viewDidLoad];
 
-    array = [NSMutableArray alloc];
+    array = [[NSMutableArray alloc] init];
         
     arrayNames = [[NSArray alloc] initWithObjects:@"Street Adress", @"Numero Civico", @"City", @"State", @"ZIP Code", @"Paese", nil];
-    int c = 9;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -42,25 +41,22 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    SharePositionFirstViewController *svc = [self.tabBarController.viewControllers objectAtIndex:0];
-    array = [array init];
-             //WithObjects:svc.streetAdress, svc.streetAdressSecondLine, svc.city, svc.state, svc.ZIPCode, svc.country, nil];
+    // Prende l'oggetto SharePositionFirstViewController con tutte le varibili associate.
+    SharePositionFirstViewController *svc = [self.tabBarController.viewControllers objectAtIndex:0]; 
     
-    [self insertObj:svc.streetAdress];
+    array = [array init];
+    
+    //-- Inserisce nell'array.
+    [self insertObj:(NSString *)svc.streetAdress];
     [self insertObj:svc.streetAdressSecondLine];
     [self insertObj:svc.city];
     [self insertObj:svc.state];
     [self insertObj:svc.ZIPCode];
     [self insertObj:svc.country];
     
-}
-
-- (void)insertObj:(NSObject *)obj {
-    if (obj != nil) {
-        [array addObject:obj];
-    }
-    else
-        [array addObject:@""];
+    
+    int k = 9;
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -72,14 +68,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [array count];
 }
@@ -157,5 +151,21 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+//***********************************
+#pragma mark - Metodi di Comodo
+//***********************************
+
+/**
+    Inserisce nell'array @"" se l'elemento è nil.
+ */
+- (void)insertObj:(NSObject *)obj {
+    if (obj != nil) {
+        [array addObject:obj];
+    }
+    else
+        [array addObject:@""];
+}
+
 
 @end

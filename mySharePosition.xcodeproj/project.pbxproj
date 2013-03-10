@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A910430216ED003A0086E729 /* Bottone.png in Resources */ = {isa = PBXBuildFile; fileRef = A910430116ED003A0086E729 /* Bottone.png */; };
 		A93AA3FA16E139D100CFCB71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AA3F916E139D100CFCB71 /* CoreLocation.framework */; };
 		A93AA3FD16E141D800CFCB71 /* MapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A93AA3FC16E141D800CFCB71 /* MapLocation.m */; };
 		A93AA3FF16E142F500CFCB71 /* prova.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93AA3FE16E142F500CFCB71 /* prova.jpg */; };
@@ -32,7 +33,6 @@
 		A96449DF16E11E9A00CCDE2F /* SharePositionFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96449DE16E11E9A00CCDE2F /* SharePositionFirstViewController.m */; };
 		A96449E116E11E9A00CCDE2F /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449E016E11E9A00CCDE2F /* first.png */; };
 		A96449E316E11E9A00CCDE2F /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449E216E11E9A00CCDE2F /* first@2x.png */; };
-		A96449E616E11E9A00CCDE2F /* SharePositionSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96449E516E11E9A00CCDE2F /* SharePositionSecondViewController.m */; };
 		A96449E816E11E9A00CCDE2F /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449E716E11E9A00CCDE2F /* second.png */; };
 		A96449EA16E11E9A00CCDE2F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A96449E916E11E9A00CCDE2F /* second@2x.png */; };
 		A96449F216E11E9B00CCDE2F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449F116E11E9B00CCDE2F /* SenTestingKit.framework */; };
@@ -43,7 +43,6 @@
 		A9644A0916E11F0700CCDE2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9644A0816E11F0700CCDE2F /* MapKit.framework */; };
 		A9D77A2816E22D4F00CDD2E9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D77A2716E22D4F00CDD2E9 /* MessageUI.framework */; };
 		A9D77A2B16E2372F00CDD2E9 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D77A2A16E2372F00CDD2E9 /* Message.m */; };
-		A9D77A2F16E2386100CDD2E9 /* MFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D77A2E16E2386100CDD2E9 /* MFile.m */; };
 		A9D77A3116E2389500CDD2E9 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9D77A3016E2389500CDD2E9 /* File.strings */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A910430116ED003A0086E729 /* Bottone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bottone.png; sourceTree = "<group>"; };
 		A93AA3F916E139D100CFCB71 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A93AA3FB16E141D800CFCB71 /* MapLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLocation.h; sourceTree = "<group>"; };
 		A93AA3FC16E141D800CFCB71 /* MapLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapLocation.m; sourceTree = "<group>"; };
@@ -91,8 +91,6 @@
 		A96449DE16E11E9A00CCDE2F /* SharePositionFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharePositionFirstViewController.m; sourceTree = "<group>"; };
 		A96449E016E11E9A00CCDE2F /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		A96449E216E11E9A00CCDE2F /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		A96449E416E11E9A00CCDE2F /* SharePositionSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharePositionSecondViewController.h; sourceTree = "<group>"; };
-		A96449E516E11E9A00CCDE2F /* SharePositionSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharePositionSecondViewController.m; sourceTree = "<group>"; };
 		A96449E716E11E9A00CCDE2F /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		A96449E916E11E9A00CCDE2F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		A96449F016E11E9B00CCDE2F /* mySharePositionTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mySharePositionTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,8 +103,6 @@
 		A9D77A2716E22D4F00CDD2E9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A9D77A2916E2372F00CDD2E9 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A9D77A2A16E2372F00CDD2E9 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		A9D77A2D16E2386100CDD2E9 /* MFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFile.h; sourceTree = "<group>"; };
-		A9D77A2E16E2386100CDD2E9 /* MFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFile.m; sourceTree = "<group>"; };
 		A9D77A3016E2389500CDD2E9 /* File.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +195,7 @@
 		A96449C816E11E9A00CCDE2F /* mySharePosition */ = {
 			isa = PBXGroup;
 			children = (
+				A910430116ED003A0086E729 /* Bottone.png */,
 				A9623ED816EA21F200ED480C /* Controller */,
 				A9D77A3216E2392E00CDD2E9 /* Model */,
 				A9D77A2C16E2373400CDD2E9 /* Libreria */,
@@ -210,8 +207,6 @@
 				A96449D216E11E9A00CCDE2F /* SharePositionAppDelegate.m */,
 				A96449E016E11E9A00CCDE2F /* first.png */,
 				A96449E216E11E9A00CCDE2F /* first@2x.png */,
-				A96449E416E11E9A00CCDE2F /* SharePositionSecondViewController.h */,
-				A96449E516E11E9A00CCDE2F /* SharePositionSecondViewController.m */,
 				A96449E716E11E9A00CCDE2F /* second.png */,
 				A96449E916E11E9A00CCDE2F /* second@2x.png */,
 				A96449C916E11E9A00CCDE2F /* Supporting Files */,
@@ -267,8 +262,6 @@
 			children = (
 				A9623EE216EA23A700ED480C /* MInfoLocatios.h */,
 				A9623EE316EA23A700ED480C /* MInfoLocatios.m */,
-				A9D77A2D16E2386100CDD2E9 /* MFile.h */,
-				A9D77A2E16E2386100CDD2E9 /* MFile.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -363,6 +356,7 @@
 				A93AA40E16E166C500CFCB71 /* button_save.png in Resources */,
 				A93AA41016E1671100CFCB71 /* button_save2.png in Resources */,
 				A9D77A3116E2389500CDD2E9 /* File.strings in Resources */,
+				A910430216ED003A0086E729 /* Bottone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +394,6 @@
 				A96449CF16E11E9A00CCDE2F /* main.m in Sources */,
 				A96449D316E11E9A00CCDE2F /* SharePositionAppDelegate.m in Sources */,
 				A96449DF16E11E9A00CCDE2F /* SharePositionFirstViewController.m in Sources */,
-				A96449E616E11E9A00CCDE2F /* SharePositionSecondViewController.m in Sources */,
 				A93AA3FD16E141D800CFCB71 /* MapLocation.m in Sources */,
 				A9D77A2B16E2372F00CDD2E9 /* Message.m in Sources */,
 				A9623EDE16EA222A00ED480C /* InfoLocationsViewController.m in Sources */,
@@ -413,7 +406,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A96449FF16E11E9B00CCDE2F /* mySharePositionTests.m in Sources */,
-				A9D77A2F16E2386100CDD2E9 /* MFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

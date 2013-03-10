@@ -34,6 +34,15 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    // Init Geocoder.
+    gecoder = [[CLGeocoder alloc] init];
+    
+    // Preparo e inizializzo le informazioni di localizzazione.
+    [self reverseGeocode:[SharePositionFirstViewController findCurrentLocation]];
+
+}
 - (void)viewDidAppear:(BOOL)animated {
     
     // Mostro all'utente la sua posizione sulla mappa.
@@ -42,11 +51,6 @@
     // Effettuo uno zoom sulla mappa.
     [SharePositionFirstViewController zoomMap:self.mapView withLatitudinalMeters:1000 andLongitudinalMeters:1000];
     
-    // Init Geocoder.
-    gecoder = [[CLGeocoder alloc] init];
-    
-    // Preparo e inizializzo le informazioni di localizzazione.
-    [self reverseGeocode:[SharePositionFirstViewController findCurrentLocation]];
 }
 
 
