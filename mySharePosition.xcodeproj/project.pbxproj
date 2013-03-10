@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A910430216ED003A0086E729 /* Bottone.png in Resources */ = {isa = PBXBuildFile; fileRef = A910430116ED003A0086E729 /* Bottone.png */; };
+		A910430716ED069A0086E729 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A910430916ED069A0086E729 /* Localizable.strings */; };
 		A93AA3FA16E139D100CFCB71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AA3F916E139D100CFCB71 /* CoreLocation.framework */; };
 		A93AA3FD16E141D800CFCB71 /* MapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A93AA3FC16E141D800CFCB71 /* MapLocation.m */; };
 		A93AA3FF16E142F500CFCB71 /* prova.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93AA3FE16E142F500CFCB71 /* prova.jpg */; };
@@ -58,6 +59,10 @@
 
 /* Begin PBXFileReference section */
 		A910430116ED003A0086E729 /* Bottone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bottone.png; sourceTree = "<group>"; };
+		A910430316ED01650086E729 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A910430416ED01650086E729 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A910430816ED069A0086E729 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A910430A16ED06A00086E729 /* it */ = {isa = PBXFileReference; lastKnownFileType = file; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A93AA3F916E139D100CFCB71 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A93AA3FB16E141D800CFCB71 /* MapLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLocation.h; sourceTree = "<group>"; };
 		A93AA3FC16E141D800CFCB71 /* MapLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapLocation.m; sourceTree = "<group>"; };
@@ -225,6 +230,7 @@
 				A96449D616E11E9A00CCDE2F /* Default@2x.png */,
 				A96449D816E11E9A00CCDE2F /* Default-568h@2x.png */,
 				A9D77A3016E2389500CDD2E9 /* File.strings */,
+				A910430916ED069A0086E729 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				it,
 			);
 			mainGroup = A96449B616E11E9A00CCDE2F;
 			productRefGroup = A96449C016E11E9A00CCDE2F /* Products */;
@@ -357,6 +364,7 @@
 				A93AA41016E1671100CFCB71 /* button_save2.png in Resources */,
 				A9D77A3116E2389500CDD2E9 /* File.strings in Resources */,
 				A910430216ED003A0086E729 /* Bottone.png in Resources */,
+				A910430716ED069A0086E729 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,10 +428,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A910430916ED069A0086E729 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A910430816ED069A0086E729 /* en */,
+				A910430A16ED06A00086E729 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		A96449CB16E11E9A00CCDE2F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A96449CC16E11E9A00CCDE2F /* en */,
+				A910430316ED01650086E729 /* it */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -440,6 +458,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A96449FB16E11E9B00CCDE2F /* en */,
+				A910430416ED01650086E729 /* it */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

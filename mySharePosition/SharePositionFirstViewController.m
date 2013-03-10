@@ -31,6 +31,10 @@
     textMessage = @"I'm Here!";
     textEmail = textMessage;
     withAnnotation = NO;
+    
+    self.labelSharePosition.text = NSLocalizedString(@"TITLE_BUTTON", nil);
+    [[self.tabBarController.tabBar.items objectAtIndex:0] setTitle:NSLocalizedString(@"TITLE_TABAR_1", @"Titolo Item 1 TabBar")];
+    [[self.tabBarController.tabBar.items objectAtIndex:1] setTitle:NSLocalizedString(@"TITLE_TABAR_2", @"Titolo Item 2 TabBar")];
 
 }
 

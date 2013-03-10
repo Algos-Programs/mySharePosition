@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  mySharePosition
+
+  Created by Marco Velluto on 10/03/13.
+  Copyright (c) 2013 Algos. All rights reserved.
+*/
+
+"TITLE_BUTTON" = "Condividi Posizione!";
+
+"TITLE_TABAR_1" = "Mappa";
+"TITLE_TABAR_2" = "Informazioni";
+
+"STREET_ADRESS" = "Indirizzo";
+"HOUSE_NUMBER" = "Numero Civico";
+"CITY" = "Città";
+"STATE" = "Regione";
+"ZIPCODE" = "Codice Postale";
+"COUNRTY" = "Paese";

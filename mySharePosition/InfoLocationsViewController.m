@@ -30,7 +30,19 @@
 
     array = [[NSMutableArray alloc] init];
         
-    arrayNames = [[NSArray alloc] initWithObjects:@"Street Adress", @"Numero Civico", @"City", @"State", @"ZIP Code", @"Paese", nil];
+    arrayNames = [[NSArray alloc] initWithObjects:@"Street Adress",
+                  @"Numero Civico",
+                  @"City",
+                  @"State",
+                  @"ZIP Code",
+                  @"Paese", nil];
+    
+    arrayNames = [[NSArray alloc] initWithObjects:NSLocalizedString(@"STREET_ADRESS", @"Streed Adress"),
+                  NSLocalizedString(@"HOUSE_NUMBER", @"House Number"),
+                  NSLocalizedString(@"CITY", @"City"),
+                  NSLocalizedString(@"STATE", @"State"),
+                  NSLocalizedString(@"ZIPCODE", @"zip code"),
+                  NSLocalizedString(@"COUNRTY", @"Country"), nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
