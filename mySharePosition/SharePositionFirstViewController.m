@@ -30,7 +30,10 @@
     
     textMessage = @"I'm Here!";
     textEmail = textMessage;
+    
     withAnnotation = NO;
+    withAlertView = NO;
+    withActivityView = YES;
     
     self.labelSharePosition.text = NSLocalizedString(@"TITLE_BUTTON", nil);
     [[self.tabBarController.tabBar.items objectAtIndex:0] setTitle:NSLocalizedString(@"TITLE_TABAR_1", @"Titolo Item 1 TabBar")];
@@ -245,10 +248,25 @@
  */
 - (IBAction)pressButtonSharePosition:(id)sender {
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SMS", @"Email", @"Facebook",nil];
-
+    if (withActivityView == withAlertView) {
+        withActivityView = YES;
+    }
     
-    [alertView show];    
+    if (withActivityView) {
+        NSString *text = [self setTextMessage:[SharePositionFirstViewController findCurrentLocation]];
+        UIImage *image = [UIImage imageNamed:@"map"];
+        NSArray *activityItems = [NSArray arrayWithObjects:text,image, nil];
+        UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems: activityItems applicationActivities:nil];
+        
+        [self presentViewController:avc animated:YES completion:nil];
+    }
+    
+
+    if (withAlertView) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SMS", @"Email", @"Facebook",nil];
+        
+        [alertView show];
+    }
 }
 
 //************************************
@@ -396,42 +414,47 @@
     return googleUrl;
 }
 
+- (NSString *)setTextMessage:(CLLocation *)location {
+    NSString *str = NSLocalizedString(@"TEXT_1", @"I'm Here!");
+    str = [str stringByAppendingString:@"\n"];
+    str = [str stringByAppendingString:[self setStringFromInfoLocation]];
+    str = [str stringByAppendingString:@"\n"];
+    str = [str stringByAppendingString:@"Vai qui per vedermi su google maps!"];
+    str = [str stringByAppendingString:@"\n"];
+
+    str = [str stringByAppendingString:[SharePositionFirstViewController googleMapsURL:location]];
+
+    return str;
+}
+
 /**
     Se le variabili sono nil allora le inizializzo con @""
  @return BOOL - NO se la localizzione non è ancora stata completata.
  */
-- (BOOL)initVariablesIfNil {
-
-    int b = YES;
+- (void)initVariablesIfNil {
     
     if (streetAdressSecondLine == nil) {
         streetAdressSecondLine = @"";
         if (streetAdress == NULL) {
             streetAdress = @"";
-            b = NO;
         }
     }
     
     if (city == nil) {
         city = @"";
-        b = NO;
     }
     
     if (ZIPCode == nil) {
         ZIPCode = @"";
-        b = NO;
     }
     
     if (state == nil) {
         state = @"";
-        b = NO;
     }
     
     if (country == nil) {
         country = @"";
-        b = NO;
     }
-    return b;
 }
 
 
@@ -442,7 +465,7 @@
     NSString *str = [NSString alloc];
     [self initVariablesIfNil];
 
-    str = [str initWithFormat:@"%@ %@, %@, %@, %@ %@\n", streetAdress, streetAdressSecondLine, city, ZIPCode, state, country];
+    str = [str initWithFormat:@"%@ %@, %@, %@, %@, %@\n", streetAdress, streetAdressSecondLine, city, ZIPCode, state, country];
     
     return str;
 }

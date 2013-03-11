@@ -17,3 +17,5 @@
 "STATE" = "Regione";
 "ZIPCODE" = "Codice Postale";
 "COUNRTY" = "Paese";
+
+"TEXT_1" = "Sono Qui!";

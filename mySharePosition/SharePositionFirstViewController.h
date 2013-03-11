@@ -33,6 +33,8 @@
     NSString *textEmail;
     
     BOOL withAnnotation;
+    BOOL withAlertView;
+    BOOL withActivityView;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;

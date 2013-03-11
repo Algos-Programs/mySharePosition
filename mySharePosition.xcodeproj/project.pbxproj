@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A9084F4516EE7629005AE506 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9084F4416EE7629005AE506 /* Social.framework */; };
+		A9084F4916EE8339005AE506 /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = A9084F4816EE8339005AE506 /* icon_114x114.png */; };
+		A9084F4B16EE8344005AE506 /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = A9084F4A16EE8344005AE506 /* icon_114x114.png */; };
 		A910430216ED003A0086E729 /* Bottone.png in Resources */ = {isa = PBXBuildFile; fileRef = A910430116ED003A0086E729 /* Bottone.png */; };
 		A910430716ED069A0086E729 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A910430916ED069A0086E729 /* Localizable.strings */; };
 		A93AA3FA16E139D100CFCB71 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93AA3F916E139D100CFCB71 /* CoreLocation.framework */; };
@@ -60,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		A9084F4416EE7629005AE506 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		A9084F4816EE8339005AE506 /* icon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114x114.png; sourceTree = "<group>"; };
+		A9084F4A16EE8344005AE506 /* icon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114x114.png; sourceTree = "<group>"; };
 		A910430116ED003A0086E729 /* Bottone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bottone.png; sourceTree = "<group>"; };
 		A910430316ED01650086E729 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A910430416ED01650086E729 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		A93AA41116E1678000CFCB71 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A9084F4816EE8339005AE506 /* icon_114x114.png */,
 				A93AA40F16E1671100CFCB71 /* button_save2.png */,
 				A93AA40916E1634800CFCB71 /* background.png */,
 				A93AA40016E15CBA00CFCB71 /* view2.png */,
@@ -170,6 +175,7 @@
 		A96449B616E11E9A00CCDE2F = {
 			isa = PBXGroup;
 			children = (
+				A9084F4A16EE8344005AE506 /* icon_114x114.png */,
 				A9084F4416EE7629005AE506 /* Social.framework */,
 				A9D77A2716E22D4F00CDD2E9 /* MessageUI.framework */,
 				A93AA3F916E139D100CFCB71 /* CoreLocation.framework */,
@@ -218,6 +224,7 @@
 				A96449E216E11E9A00CCDE2F /* first@2x.png */,
 				A96449E716E11E9A00CCDE2F /* second.png */,
 				A96449E916E11E9A00CCDE2F /* second@2x.png */,
+				A910430916ED069A0086E729 /* Localizable.strings */,
 				A96449C916E11E9A00CCDE2F /* Supporting Files */,
 			);
 			path = mySharePosition;
@@ -234,7 +241,6 @@
 				A96449D616E11E9A00CCDE2F /* Default@2x.png */,
 				A96449D816E11E9A00CCDE2F /* Default-568h@2x.png */,
 				A9D77A3016E2389500CDD2E9 /* File.strings */,
-				A910430916ED069A0086E729 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -279,9 +285,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A96449BE16E11E9A00CCDE2F /* mySharePosition */ = {
+		A96449BE16E11E9A00CCDE2F /* myPlace */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A9644A0216E11E9B00CCDE2F /* Build configuration list for PBXNativeTarget "mySharePosition" */;
+			buildConfigurationList = A9644A0216E11E9B00CCDE2F /* Build configuration list for PBXNativeTarget "myPlace" */;
 			buildPhases = (
 				A96449BB16E11E9A00CCDE2F /* Sources */,
 				A96449BC16E11E9A00CCDE2F /* Frameworks */,
@@ -291,7 +297,7 @@
 			);
 			dependencies = (
 			);
-			name = mySharePosition;
+			name = myPlace;
 			productName = mySharePosition;
 			productReference = A96449BF16E11E9A00CCDE2F /* mySharePosition.app */;
 			productType = "com.apple.product-type.application";
@@ -338,7 +344,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A96449BE16E11E9A00CCDE2F /* mySharePosition */,
+				A96449BE16E11E9A00CCDE2F /* myPlace */,
 				A96449EF16E11E9B00CCDE2F /* mySharePositionTests */,
 			);
 		};
@@ -369,6 +375,8 @@
 				A9D77A3116E2389500CDD2E9 /* File.strings in Resources */,
 				A910430216ED003A0086E729 /* Bottone.png in Resources */,
 				A910430716ED069A0086E729 /* Localizable.strings in Resources */,
+				A9084F4916EE8339005AE506 /* icon_114x114.png in Resources */,
+				A9084F4B16EE8344005AE506 /* icon_114x114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,7 +434,7 @@
 /* Begin PBXTargetDependency section */
 		A96449F616E11E9B00CCDE2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A96449BE16E11E9A00CCDE2F /* mySharePosition */;
+			target = A96449BE16E11E9A00CCDE2F /* myPlace */;
 			targetProxy = A96449F516E11E9B00CCDE2F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -594,7 +602,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A9644A0216E11E9B00CCDE2F /* Build configuration list for PBXNativeTarget "mySharePosition" */ = {
+		A9644A0216E11E9B00CCDE2F /* Build configuration list for PBXNativeTarget "myPlace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A9644A0316E11E9B00CCDE2F /* Debug */,
