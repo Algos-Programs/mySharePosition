@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MapLocation.h"
 #import <MessageUI/MessageUI.h>
+#import <Social/Social.h>
 
 @interface SharePositionFirstViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate, MKAnnotation, MFMessageComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate> {
     

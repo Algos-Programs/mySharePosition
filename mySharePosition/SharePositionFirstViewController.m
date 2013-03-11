@@ -194,6 +194,21 @@
         case 2: //Email
             [self sendEMailWithNumbers:nil withText:nil withLocation:[SharePositionFirstViewController findCurrentLocation]];
             break;
+            
+        case 3: //Facebook
+            if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+                
+                SLComposeViewController*fvc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+                
+                [fvc setInitialText:@"Mi Trovo QUI!"];
+                
+                //[fvc addImage:[UIImage imageNamed:@"lhasa"]];
+                
+                [self presentViewController:fvc animated:YES completion:nil];
+                
+            }
+            break;
+            
         default:
             break;
     }
@@ -230,7 +245,7 @@
  */
 - (IBAction)pressButtonSharePosition:(id)sender {
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SMS", @"Email", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SMS", @"Email", @"Facebook",nil];
 
     
     [alertView show];    
@@ -383,37 +398,51 @@
 
 /**
     Se le variabili sono nil allora le inizializzo con @""
+ @return BOOL - NO se la localizzione non è ancora stata completata.
  */
-- (void)initVariablesIfNil {
+- (BOOL)initVariablesIfNil {
 
+    int b = YES;
+    
     if (streetAdressSecondLine == nil) {
         streetAdressSecondLine = @"";
+        if (streetAdress == NULL) {
+            streetAdress = @"";
+            b = NO;
+        }
     }
     
     if (city == nil) {
         city = @"";
+        b = NO;
     }
     
     if (ZIPCode == nil) {
         ZIPCode = @"";
+        b = NO;
     }
     
     if (state == nil) {
         state = @"";
+        b = NO;
     }
     
     if (country == nil) {
         country = @"";
+        b = NO;
     }
+    return b;
 }
+
 
 /**
     Imposta la strinnga con i valori delle impostazioni.
  */
 - (NSString *)setStringFromInfoLocation {
-    
+    NSString *str = [NSString alloc];
     [self initVariablesIfNil];
-    NSString *str = [[NSString alloc] initWithFormat:@"%@ %@, %@, %@, %@ %@\n", streetAdress, streetAdressSecondLine, city, ZIPCode, state, country];
+
+    str = [str initWithFormat:@"%@ %@, %@, %@, %@ %@\n", streetAdress, streetAdressSecondLine, city, ZIPCode, state, country];
     
     return str;
 }
