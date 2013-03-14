@@ -18,6 +18,7 @@
     //-- Localizzazione
     CLGeocoder *gecoder;
     CLPlacemark *placemark;
+    CLLocationManager *manager;
     
     //-- Info Localizzione
     NSString *streetAdress;

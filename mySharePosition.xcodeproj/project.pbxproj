@@ -21,7 +21,7 @@
 		A93AA40E16E166C500CFCB71 /* button_save.png in Resources */ = {isa = PBXBuildFile; fileRef = A93AA40D16E166C500CFCB71 /* button_save.png */; };
 		A93AA41016E1671100CFCB71 /* button_save2.png in Resources */ = {isa = PBXBuildFile; fileRef = A93AA40F16E1671100CFCB71 /* button_save2.png */; };
 		A95F523F16F22352000D1E71 /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F523E16F22352000D1E71 /* icon_114x114.png */; };
-		A95F524116F2235C000D1E71 /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F524016F2235C000D1E71 /* icon_114x114.png */; };
+		A95F524216F2260D000D1E71 /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = A95F524016F2235C000D1E71 /* icon_114x114.png */; };
 		A9623EDE16EA222A00ED480C /* InfoLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9623EDD16EA222A00ED480C /* InfoLocationsViewController.m */; };
 		A9623EE416EA23A700ED480C /* MInfoLocatios.m in Sources */ = {isa = PBXBuildFile; fileRef = A9623EE316EA23A700ED480C /* MInfoLocatios.m */; };
 		A96449C316E11E9A00CCDE2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96449C216E11E9A00CCDE2F /* UIKit.framework */; };
@@ -376,7 +376,7 @@
 				A910430216ED003A0086E729 /* Bottone.png in Resources */,
 				A910430716ED069A0086E729 /* Localizable.strings in Resources */,
 				A95F523F16F22352000D1E71 /* icon_114x114.png in Resources */,
-				A95F524116F2235C000D1E71 /* icon_114x114.png in Resources */,
+				A95F524216F2260D000D1E71 /* icon_114x114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

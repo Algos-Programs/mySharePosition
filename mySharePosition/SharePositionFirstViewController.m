@@ -35,6 +35,9 @@
     self.labelSharePosition.text = NSLocalizedString(@"TITLE_BUTTON", nil);
     [[self.tabBarController.tabBar.items objectAtIndex:0] setTitle:NSLocalizedString(@"TITLE_TABAR_1", @"Titolo Item 1 TabBar")];
     [[self.tabBarController.tabBar.items objectAtIndex:1] setTitle:NSLocalizedString(@"TITLE_TABAR_2", @"Titolo Item 2 TabBar")];
+    
+    // Mostro all'utente la sua posizione sulla mappa.
+    self.mapView.showsUserLocation = YES;
 
 }
 
@@ -44,14 +47,13 @@
     gecoder = [[CLGeocoder alloc] init];
     
     // Preparo e inizializzo le informazioni di localizzazione.
-    [self reverseGeocode:[SharePositionFirstViewController findCurrentLocation]];
-
+    [self localizedMe];
 }
 - (void)viewDidAppear:(BOOL)animated {
     
-    // Mostro all'utente la sua posizione sulla mappa.
-    self.mapView.showsUserLocation = YES;
     
+    //[self reverseGeocode:[SharePositionFirstViewController findCurrentLocation]];
+
     // Effettuo uno zoom sulla mappa.
     [SharePositionFirstViewController zoomMap:self.mapView withLatitudinalMeters:1000 andLongitudinalMeters:1000];
     
@@ -67,6 +69,33 @@
 //************************************
 #pragma mark - Localization Methods
 //************************************
+
+
+- (void)localizedMe {
+    
+    if (manager == nil)
+        manager = [[CLLocationManager alloc] init];
+    
+    manager.delegate = self;
+    manager.desiredAccuracy = kCLLocationAccuracyBest;
+    [manager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)aManager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    if ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60)
+        return;
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 2000, 2000);
+    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];
+    [self.mapView setRegion:adjustedRegion animated:YES];
+    
+    aManager.delegate = nil;
+    [aManager stopUpdatingLocation];
+    
+    
+    [self reverseGeocode:newLocation];
+}
 
 /**
     Fa uno zoom STANDARD (2000 - 2000) sulla mappa nel punto in cui ti trovi.
