@@ -245,10 +245,20 @@
  */
 - (IBAction)pressButtonSharePosition:(id)sender {
     
+    /*
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SMS", @"Email", @"Facebook",nil];
 
     
-    [alertView show];    
+    [alertView show];
+     
+     */
+    NSString *text = [self setStringFromInfoLocation];
+    NSArray *activityItems = [NSArray arrayWithObjects:text, nil];
+    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems: activityItems applicationActivities:nil];
+    
+    [self presentViewController:avc animated:YES completion:nil];
+
+    
 }
 
 //************************************
