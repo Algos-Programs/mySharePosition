@@ -37,6 +37,12 @@
                   NSLocalizedString(@"ZIPCODE", @"zip code"),
                   NSLocalizedString(@"COUNRTY", @"Country"), nil];
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
+    tapGesture.numberOfTapsRequired = 1;
+    self.developedLabel.userInteractionEnabled = YES;//Since by default, UILabel is not interaction enabled
+    [self.developedLabel addGestureRecognizer:tapGesture];
+
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -172,6 +178,17 @@
     else
         [array addObject:@""];
 }
+
+//Some where in the code
+-(void)labelTapped:(UIGestureRecognizer *)sender
+{
+    //Do some stuff
+    int k = 9;
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.algos.it/myPlace/mobile"]];
+
+}
+
 
 
 @end

@@ -23,6 +23,10 @@
 @synthesize ZIPCode;
 @synthesize country;
 
+static const double DISTANCE_LATITUDE = 1000;
+static const double DISTANCE_LONGITUDE = 1000;
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,6 +42,8 @@
     
     // Mostro all'utente la sua posizione sulla mappa.
     self.mapView.showsUserLocation = YES;
+    
+
 
 }
 
@@ -46,24 +52,44 @@
     // Init Geocoder.
     gecoder = [[CLGeocoder alloc] init];
     
-    // Preparo e inizializzo le informazioni di localizzazione.
+    // Effutuo la prima localizzazione.
     [self localizedMe];
+    
+
 }
 - (void)viewDidAppear:(BOOL)animated {
-    
-    
-    //[self reverseGeocode:[SharePositionFirstViewController findCurrentLocation]];
-
     // Effettuo uno zoom sulla mappa.
-    [SharePositionFirstViewController zoomMap:self.mapView withLatitudinalMeters:1000 andLongitudinalMeters:1000];
-    
+    [SharePositionFirstViewController zoomMap:self.mapView withLatitudinalMeters:DISTANCE_LATITUDE andLongitudinalMeters:DISTANCE_LONGITUDE];
+
+
 }
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Dispose of any resources that can be recreated.x
+}
+
+
+//************************************
+#pragma mark - Delegate Localization Methods
+//************************************
+
+- (void)locationManager:(CLLocationManager *)aManager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    if ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60)
+        return;
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, DISTANCE_LATITUDE, DISTANCE_LONGITUDE);
+    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];
+    [self.mapView setRegion:adjustedRegion animated:YES];
+    
+    aManager.delegate = nil;
+    [aManager stopUpdatingLocation];
+    
+    
+    [self reverseGeocode:newLocation];
 }
 
 //************************************
@@ -79,22 +105,6 @@
     manager.delegate = self;
     manager.desiredAccuracy = kCLLocationAccuracyBest;
     [manager startUpdatingLocation];
-}
-
-- (void)locationManager:(CLLocationManager *)aManager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    if ([newLocation.timestamp timeIntervalSince1970] < [NSDate timeIntervalSinceReferenceDate] - 60)
-        return;
-    
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 2000, 2000);
-    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];
-    [self.mapView setRegion:adjustedRegion animated:YES];
-    
-    aManager.delegate = nil;
-    [aManager stopUpdatingLocation];
-    
-    
-    [self reverseGeocode:newLocation];
 }
 
 /**
@@ -485,6 +495,10 @@
     
     return str;
 }
+
+
+
+
 
 
 

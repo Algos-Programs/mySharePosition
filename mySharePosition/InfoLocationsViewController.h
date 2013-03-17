@@ -13,5 +13,6 @@
     NSMutableArray *array; //Conterrà le info della localizzione (es. Via marzabotto, 10, 20090).
     NSArray *arrayNames; //Conterrà i nomi delle info localizzazione (es. Via, N°, CAP).
 }
+@property (weak, nonatomic) IBOutlet UILabel *developedLabel;
 
 @end
