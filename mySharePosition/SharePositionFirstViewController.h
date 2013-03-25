@@ -46,6 +46,9 @@
 @property (nonatomic, strong)NSString *ZIPCode;
 @property (nonatomic, strong)NSString *country;
 
+@property (nonatomic)double latitude;
+@property (nonatomic)double longitude;
+
 @property (weak, nonatomic) IBOutlet UILabel *labelSharePosition;
 
 - (IBAction)pressButtonSharePosition:(id)sender;

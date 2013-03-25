@@ -8,6 +8,7 @@
 
 #import "InfoLocationsViewController.h"
 #import "SharePositionFirstViewController.h"
+#import "Request.h"
 
 @interface InfoLocationsViewController ()
 
@@ -28,20 +29,26 @@
 {
     [super viewDidLoad];
 
+    [Request requestWithDomain:nil withProducerId:nil withEventCode:@"3" andEventDetails:@"View Details"];
     array = [[NSMutableArray alloc] init];
-        
+    arrayContLocation = [[NSMutableArray alloc] init];
+    arrayValueCelle = [[NSArray alloc] init];
     arrayNames = [[NSArray alloc] initWithObjects:NSLocalizedString(@"STREET_ADRESS", @"Streed Adress"),
                   NSLocalizedString(@"HOUSE_NUMBER", @"House Number"),
                   NSLocalizedString(@"CITY", @"City"),
                   NSLocalizedString(@"STATE", @"State"),
                   NSLocalizedString(@"ZIPCODE", @"zip code"),
-                  NSLocalizedString(@"COUNRTY", @"Country"), nil];
+                  NSLocalizedString(@"COUNRTY", @"Country"), nil];    
+
+    arrayGeoLocation = [[NSArray alloc] initWithObjects:@"Latitude", @"Longitude", nil];
+    arrayCelle = [[NSArray alloc] initWithObjects:arrayNames, arrayGeoLocation, nil];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
     tapGesture.numberOfTapsRequired = 1;
     self.developedLabel.userInteractionEnabled = YES;//Since by default, UILabel is not interaction enabled
     [self.developedLabel addGestureRecognizer:tapGesture];
 
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -66,6 +73,13 @@
     [self insertObj:svc.ZIPCode];
     [self insertObj:svc.country];
     
+    arrayContLocation = [arrayContLocation init];
+    [arrayContLocation removeAllObjects];
+    
+    [arrayContLocation addObject:[NSString stringWithFormat:@"%f",svc.latitude]];
+    [arrayContLocation addObject:[NSString stringWithFormat:@"%f",svc.longitude]];
+    
+    
     [self.tableView reloadData];
     
     
@@ -81,13 +95,24 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [array count];
+    switch (section) {
+        case 0:
+            return [array count];
+            break;
+        
+        case 1:
+            return 2;
+            break;
+        default:
+            return 0;
+            break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -97,8 +122,13 @@
     
     // Configure the cell...
     
-    cell.textLabel.text = [arrayNames objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [array objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[arrayCelle objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    
+    if (indexPath.section == 0) {
+        cell.detailTextLabel.text = [array objectAtIndex:indexPath.row];
+    }
+    else
+        cell.detailTextLabel.text = [arrayContLocation objectAtIndex:indexPath.row];
     
     
     /**
@@ -182,10 +212,9 @@
 //Some where in the code
 -(void)labelTapped:(UIGestureRecognizer *)sender
 {
-    //Do some stuff
-    int k = 9;
+    [Request requestWithDomain:nil withProducerId:nil withEventCode:@"4" andEventDetails:@"Press Label Algos"];
     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.algos.it/myPlace/mobile"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://mobilethemeet.algos.biz"]];
 
 }
 

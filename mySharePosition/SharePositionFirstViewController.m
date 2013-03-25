@@ -7,6 +7,7 @@
 //
 
 #import "SharePositionFirstViewController.h"
+#import "Request.h"
 //#import "MInfoLocatios.h"
 //#import "MFile.h"
 
@@ -31,10 +32,12 @@ static const double DISTANCE_LONGITUDE = 1000;
 {
     [super viewDidLoad];
     self.mapView.mapType = MKMapTypeStandard;
+    [Request requestWithDomain:nil withProducerId:nil withEventCode:@"1" andEventDetails:@"Apertura App"];
     
     textMessage = @"I'm Here!";
     textEmail = textMessage;
     withAnnotation = NO;
+
     
     self.labelSharePosition.text = NSLocalizedString(@"TITLE_BUTTON", nil);
     [[self.tabBarController.tabBar.items objectAtIndex:0] setTitle:NSLocalizedString(@"TITLE_TABAR_1", @"Titolo Item 1 TabBar")];
@@ -43,8 +46,12 @@ static const double DISTANCE_LONGITUDE = 1000;
     // Mostro all'utente la sua posizione sulla mappa.
     self.mapView.showsUserLocation = YES;
     
-
-
+    //-- Imposto le coordinate.
+    CLLocation *location = [SharePositionFirstViewController findCurrentLocation];
+    CLLocationCoordinate2D coordinate = [location coordinate];
+    self.longitude = coordinate.longitude;
+    self.latitude = coordinate.latitude;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -284,13 +291,8 @@ static const double DISTANCE_LONGITUDE = 1000;
  */
 - (IBAction)pressButtonSharePosition:(id)sender {
     
-    /*
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Share Position" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"SMS", @"Email", @"Facebook",nil];
-
+    [Request requestWithDomain:nil withProducerId:nil withEventCode:@"2" andEventDetails:@"Press Button Share Position"];
     
-    [alertView show];
-     
-     */
     NSString *text = [self setStringFromInfoLocation];
     NSArray *activityItems = [NSArray arrayWithObjects:text, nil];
     UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems: activityItems applicationActivities:nil];
@@ -386,6 +388,7 @@ static const double DISTANCE_LONGITUDE = 1000;
         if (location != nil) {
             CLLocationCoordinate2D coordinate = [location coordinate];
             coordinateStr = [coordinateStr initWithFormat:@"\nMi trovo qui: \nLatitudine: %f \nLongitudine: %f\n",coordinate.latitude, coordinate.longitude];
+            
             
             addressStr = [addressStr initWithString:[self setStringFromInfoLocation]];
             
@@ -492,6 +495,7 @@ static const double DISTANCE_LONGITUDE = 1000;
     [self initVariablesIfNil];
 
     str = [str initWithFormat:@"%@ %@, %@, %@, %@ %@\n", streetAdress, streetAdressSecondLine, city, ZIPCode, state, country];
+    str = [str stringByAppendingString:[SharePositionFirstViewController googleMapsURL:[SharePositionFirstViewController findCurrentLocation]]];
     
     return str;
 }
